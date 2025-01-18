@@ -73,15 +73,10 @@ namespace simulation.src.model {
         /// <param name="password">Senha a ser encriptada</param>
         /// <returns>Nova senha encriptada</returns>
         private string cryptPassword(string password){
-            string[] cryptArray = password.Split("");
-            string[] reverseArray = new string[cryptArray.Length];
+            char[] cryptArray = password.ToCharArray();
+            Array.Reverse(cryptArray);
 
-            for (int index = 0; index < cryptArray.Length; index++) {
-                reverseArray[index] = cryptArray[cryptArray.Length - index];
-            } 
-
-            string crypt = string.Join("", cryptArray);
-
+            string crypt = new string(cryptArray);
             return $"HASH{crypt}000";
         }
     }
