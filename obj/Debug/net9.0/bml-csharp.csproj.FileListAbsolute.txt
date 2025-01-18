@@ -1,5 +1,0 @@
-/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/obj/Debug/net9.0/bml-csharp.GeneratedMSBuildEditorConfig.editorconfig
-/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/obj/Debug/net9.0/bml-csharp.AssemblyInfoInputs.cache
-/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/obj/Debug/net9.0/bml-csharp.AssemblyInfo.cs
-/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/obj/Debug/net9.0/bml-csharp.csproj.CoreCompileInputs.cache
-/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/obj/Debug/net9.0/bml-csharp.sourcelink.json

@@ -1,0 +1,29 @@
+/home/pedro/Área de Trabalho/bml-csharp/simulation/obj/Debug/net9.0/simulation.GeneratedMSBuildEditorConfig.editorconfig
+/home/pedro/Área de Trabalho/bml-csharp/simulation/obj/Debug/net9.0/simulation.AssemblyInfoInputs.cache
+/home/pedro/Área de Trabalho/bml-csharp/simulation/obj/Debug/net9.0/simulation.AssemblyInfo.cs
+/home/pedro/Área de Trabalho/bml-csharp/simulation/obj/Debug/net9.0/simulation.csproj.CoreCompileInputs.cache
+/home/pedro/Área de Trabalho/bml-csharp/simulation/bin/Debug/net9.0/simulation
+/home/pedro/Área de Trabalho/bml-csharp/simulation/bin/Debug/net9.0/simulation.deps.json
+/home/pedro/Área de Trabalho/bml-csharp/simulation/bin/Debug/net9.0/simulation.runtimeconfig.json
+/home/pedro/Área de Trabalho/bml-csharp/simulation/bin/Debug/net9.0/simulation.dll
+/home/pedro/Área de Trabalho/bml-csharp/simulation/bin/Debug/net9.0/simulation.pdb
+/home/pedro/Área de Trabalho/bml-csharp/simulation/obj/Debug/net9.0/simulation.dll
+/home/pedro/Área de Trabalho/bml-csharp/simulation/obj/Debug/net9.0/refint/simulation.dll
+/home/pedro/Área de Trabalho/bml-csharp/simulation/obj/Debug/net9.0/simulation.pdb
+/home/pedro/Área de Trabalho/bml-csharp/simulation/obj/Debug/net9.0/simulation.genruntimeconfig.cache
+/home/pedro/Área de Trabalho/bml-csharp/simulation/obj/Debug/net9.0/ref/simulation.dll
+/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation/bin/Debug/net9.0/simulation
+/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation/bin/Debug/net9.0/simulation.deps.json
+/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation/bin/Debug/net9.0/simulation.runtimeconfig.json
+/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation/bin/Debug/net9.0/simulation.dll
+/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation/bin/Debug/net9.0/simulation.pdb
+/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation/obj/Debug/net9.0/simulation.GeneratedMSBuildEditorConfig.editorconfig
+/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation/obj/Debug/net9.0/simulation.AssemblyInfoInputs.cache
+/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation/obj/Debug/net9.0/simulation.AssemblyInfo.cs
+/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation/obj/Debug/net9.0/simulation.csproj.CoreCompileInputs.cache
+/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation/obj/Debug/net9.0/simulation.sourcelink.json
+/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation/obj/Debug/net9.0/simulation.dll
+/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation/obj/Debug/net9.0/refint/simulation.dll
+/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation/obj/Debug/net9.0/simulation.pdb
+/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation/obj/Debug/net9.0/simulation.genruntimeconfig.cache
+/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation/obj/Debug/net9.0/ref/simulation.dll
