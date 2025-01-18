@@ -15,7 +15,7 @@ namespace simulation {
         /// <param name="args">Lista de parametros iniciais</param>
         static void Main(string[] args) {
             
-            string arquivo = prepareArgs(args);
+            string arquivo = PrepareArgs(args);
 
             // Obtendo o tempo inicial de leitura em milissegundos
             long leitura_inicio = DateTimeOffset.Now.ToUnixTimeMilliseconds();
@@ -62,7 +62,7 @@ namespace simulation {
         /// Método para captura e tratamento dos parametros obtidos via console
         /// </summary>
         /// <param name="args">Lista de parametros iniciais</param>
-        private static string prepareArgs(string[] codes) {
+        private static string PrepareArgs(string[] codes) {
             if(codes.Length != 1) {
                 Console.WriteLine("Parametros inválidos.");
                 Environment.Exit(-1);
