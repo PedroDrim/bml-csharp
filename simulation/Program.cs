@@ -20,7 +20,7 @@ namespace simulation {
             IBenchmarkOutput benchmark = new BenchmarkMeasure();
 
             ITableAnalysis<double[]> summaryAnalysis = new SummaryAnalysis();
-            ITableAnalysis<List<UserInfo>> bubbleSortAnalysis = new BubbleSortAnalysis();
+            ITableAnalysis<List<UserInfo>> mergeSortAnalysis = new MergeSortAnalysis();
             ITableAnalysis<List<UserInfo>> quickSortAnalysis = new QuickSortAnalysis();
             ITableAnalysis<List<UserInfo>> languageSortAnalysis = new LanguageSortAnalysis();
 
@@ -42,11 +42,11 @@ namespace simulation {
                 double[] summary = summaryAnalysis.Analysis(list);
                 benchmark.End("SummaryAnalisys@" + index);
                 //==================================================
-                // Analise dos dados (Bubble)
-                Console.WriteLine("\t[LOG] Bubble");
-                benchmark.Start("BubbleAnalisys@" + index);
-                List<UserInfo> bubble = bubbleSortAnalysis.Analysis(list);
-                benchmark.End("BubbleAnalisys@" + index);
+                // Analise dos dados (Merge)
+                Console.WriteLine("\t[LOG] Merge");
+                benchmark.Start("MergeAnalisys@" + index);
+                List<UserInfo> merge = mergeSortAnalysis.Analysis(list);
+                benchmark.End("MergeAnalisys@" + index);
                 //==================================================
                 // Analise dos dados (Quick)
                 Console.WriteLine("\t[LOG] Quick");

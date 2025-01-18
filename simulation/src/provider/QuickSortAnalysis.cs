@@ -11,71 +11,45 @@ namespace simulation.src.provider {
         
         private UserInfo[] arrayUserInfo = [];
 
+
         /// <summary>
         /// Realiza uma ordenacao quickSort
         /// </summary>
-        /// <param name="list">Lista de dados a ser ordenada</param>
+        /// <param name="userInfoList">Lista de dados a ser ordenada</param>
         /// <returns>Lista ordenada</returns>
-        public List<UserInfo> Analysis(List<UserInfo> list) {
-            if(list == null || (list.Count == 0))
-                throw new InvalidParameterException("'userInfoList' é null ou vazio");
+        public List<UserInfo> Analysis(List<UserInfo> userInfoList) {
+            if (userInfoList.Count == 0)
+                throw new InvalidParameterException("'userInfoList' é vazio");
 
-            this.arrayUserInfo = list.ToArray();
-
-            this.QuickSort(0, this.arrayUserInfo.Length - 1);
-
-            return [.. this.arrayUserInfo];
+            return this.QuickSort(userInfoList);
         }
 
         /// <summary>
         /// Iniciando quickSort
         /// </summary>
-        /// <param name="baixo">index inicial</param>
-        /// <param name="alto">index final</param>
-        private void QuickSort(int baixo, int alto) {
-            if(baixo > alto) throw new InvalidParameterException("'baixo' é maior que 'alto'");
+        /// <param name="array">Lista a ser ordenada</param>
+        /// <returns>Lista ordenada</returns>
+        private List<UserInfo> QuickSort(List<UserInfo> array) {
+            int tamanho = array.Count;
+            if (tamanho <= 1)
+                return array;
 
-            int indexInicio = baixo;
-            int indexFim = alto;
+            // Obtendo posicao central
+            double middle = tamanho / 2;
+            int meio = (int) Math.Floor(middle);
+            UserInfo pivot = array[meio];
 
-            // Get the pivot element from the middle of the list
-            UserInfo userInfoPivot = arrayUserInfo[baixo + (alto - baixo)/2];
-            UserInfo aux;
+            // Separando vetores
+            List<UserInfo> menores = array.FindAll(value => value.Credit < pivot.Credit);
+            List<UserInfo> iguais = array.FindAll(value => value.Credit == pivot.Credit);
+            List<UserInfo> maiores = array.FindAll(value => value.Credit > pivot.Credit);
 
-            // Divide into two lists
-            while (indexInicio <= indexFim) {
-                // If the current value from the left list is smaller than the pivot
-                // element then get the next element from the left list
+            // Obtendo vetores
+            List<UserInfo> arrayMenores = this.QuickSort(menores);
+            List<UserInfo> arrayMaiores = this.QuickSort(maiores);
 
-                while (arrayUserInfo[indexInicio].Credit < userInfoPivot.Credit) {
-                    indexInicio++;
-                }
-                // If the current value from the right list is larger than the pivot
-                // element then get the next element from the right list
-                while (arrayUserInfo[indexFim].Credit > userInfoPivot.Credit) {
-                    indexFim--;
-                }
-
-                // If we have found a value in the left list which is larger than
-                // the pivot element and if we have found a value in the right list
-                // which is smaller than the pivot element then we exchange the
-                // values.
-                // As we are done we can increase i and j
-                if (indexInicio <= indexFim) {
-                    aux = arrayUserInfo[indexInicio];
-                    arrayUserInfo[indexInicio] = arrayUserInfo[indexFim];
-                    arrayUserInfo[indexFim] = aux;
-
-                    indexInicio++;
-                    indexFim--;
-                }
-            }
-
-            // Recursion
-            if (baixo < indexFim) QuickSort(baixo, indexFim);
-            if (indexInicio < alto) QuickSort(indexInicio, alto);
+            // Retornando vetor
+            return [.. arrayMaiores, .. iguais, .. arrayMenores];
         }
-
-
     }
 }
