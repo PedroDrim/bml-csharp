@@ -1,88 +1,40 @@
+using simulation.src.model.exception;
+
 namespace simulation.src.model {
 
     /// <summary>
-    /// Classe contendo as informacoes do usuario
+    /// Informacoes do usuario
     /// </summary>
     /// <param name="user">Nome do usuario</param>
     /// <param name="password">Senha do usuario</param>
-    /// <param name="credit">Credito do usuario</param>
+    /// <param name="credit">Quantidade de creditos do usuario</param>
     public class UserInfo(string user, string password, double credit) {
         
-        /// <summary>
-        /// Variável privada para o nome do usuário
-        /// </summary>
-        private string _user = user;
+        private string _password = password ?? throw new InvalidParameterException("'password' e null");
 
         /// <summary>
-        /// Variável privada para a senha do usuário
+        /// Nome do usuario
         /// </summary>
-        private string _password = password;
+        /// <returns>Nome do usuario</returns>
+        public string User { get; set; } = user ?? throw new InvalidParameterException("'user' e null");
 
         /// <summary>
-        /// Variável privada para os creditos do usuário
+        /// Quantidade de creditos do usuario
         /// </summary>
-        private double _credit = credit;
-                
-        /// <summary>
-        /// Variável publica para o nome do usuário
-        /// </summary>
-        public string User {
-
-            /// <summary>
-            /// Obtem o nome do usuario
-            /// </summary>
-            /// <returns>Nome do usuario</returns>
-            get {
-                return this._user;
-            }
-
-            /// <summary>
-            /// Atualiza o nome do usuário
-            /// </summary>
-            set {
-                this._user = value;
-            }
-        }
+        /// <returns>Quantidade de creditos do usuario</returns>
+        public double Credit { get; set; } = credit;
 
         /// <summary>
-        /// Variável publica para a senha do usuário
+        /// Senha do usuario
         /// </summary>
+        /// <returns>Senha do usuario criptografada</returns>
         public string Password {
-            
-            /// <summary>
-            /// Obtem a senha do usuario criptografada
-            /// </summary>
-            /// <returns>Senha do usuario criptografada</returns>
             get {
-                return this.CryptPassword(this._password);
+                return CryptPassword(this._password);
             }
 
-            /// <summary>
-            /// Atualiza a senha do usuário
-            /// </summary>
             set {
-                this._password = value;
-            }
-        }
-
-        /// <summary>
-        /// Variável publica para o credito do usuário
-        /// </summary>
-        public double Credit {
-
-            /// <summary>
-            /// Obtem o credito do usuario
-            /// </summary>
-            /// <returns>credito do usuario</returns>
-            get {
-                return this._credit;
-            }
-
-            /// <summary>
-            /// Atualiza o nome do usuário
-            /// </summary>
-            set {
-                this._credit = value;
+                this._password = value ?? throw new InvalidParameterException("'password' e null");
             }
         }
 
@@ -91,11 +43,13 @@ namespace simulation.src.model {
         /// </summary>
         /// <param name="password">Senha a ser encriptada</param>
         /// <returns>Nova senha encriptada</returns>
-        private string CryptPassword(string password) {
+        private string CryptPassword(string password){
+            if(password == null) throw new InvalidParameterException("'password' e null");
+
             char[] cryptArray = password.ToCharArray();
             Array.Reverse(cryptArray);
 
-            string crypt = new string(cryptArray);
+            string crypt = new(cryptArray);
             return $"HASH{crypt}000";
         }
     }

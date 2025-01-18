@@ -1,74 +1,76 @@
-﻿using System.Text;
-using simulation.src.model;
+﻿using simulation.src.model;
 using simulation.src.provider;
+using System.Text.Json;
 
 namespace simulation {
 
-    /// <summary>
-    /// Criando uma classe inicial "Program"
-    /// </summary>
+    public class Config {
+        public required string[] INPUT_FILENAME_LIST { get; set; }
+        public required string OUTPUT_FILENAME { get; set; }
+    }
+
     public class Program {
 
-        /// <summary>
-        /// Método primário de execução 
-        /// </summary>
-        /// <param name="args">Lista de parametros iniciais</param>
         static void Main(string[] args) {
+            Config configuration = GetConfiguration(args[0]);
             
-            string arquivo = PrepareArgs(args);
+            string[] inputList = configuration.INPUT_FILENAME_LIST;
+            string output = configuration.OUTPUT_FILENAME;
 
-            // Obtendo o tempo inicial de leitura em milissegundos
-            long leitura_inicio = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            IBenchmarkOutput benchmark = new BenchmarkMeasure();
 
-            // Convertendo arquivo em lista de "UserInfo"
-            Table table = new (arquivo);
+            ITableAnalysis<double[]> summaryAnalysis = new SummaryAnalysis();
+            ITableAnalysis<List<UserInfo>> bubbleSortAnalysis = new BubbleSortAnalysis();
+            ITableAnalysis<List<UserInfo>> quickSortAnalysis = new QuickSortAnalysis();
+            ITableAnalysis<List<UserInfo>> languageSortAnalysis = new LanguageSortAnalysis();
 
-            // Obtendo o tempo final de leitura em milissegundos
-            long leitura_fim = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            for (int index = 0; index < inputList.Length; index++) {
+                string input = inputList[index];
+                Console.WriteLine("[START] Arquivo: " + index);
 
-            List<UserInfo> list = table.UserInfoList;
+                //==================================================
+                // Leitura dos dados
+                Console.WriteLine("\t[LOG] Read");
+                benchmark.Start("Read@" + index);
+                TableReader tableReader = new (input);
+                List<UserInfo> list = tableReader.Read();
+                benchmark.End("Read@" + index);
+                //==================================================
+                // Analise dos dados (Summary)
+                Console.WriteLine("\t[LOG] Summary");
+                benchmark.Start("SummaryAnalisys@" + index);
+                double[] summary = summaryAnalysis.Analysis(list);
+                benchmark.End("SummaryAnalisys@" + index);
+                //==================================================
+                // Analise dos dados (Bubble)
+                Console.WriteLine("\t[LOG] Bubble");
+                benchmark.Start("BubbleAnalisys@" + index);
+                List<UserInfo> bubble = bubbleSortAnalysis.Analysis(list);
+                benchmark.End("BubbleAnalisys@" + index);
+                //==================================================
+                // Analise dos dados (Quick)
+                Console.WriteLine("\t[LOG] Quick");
+                benchmark.Start("QuickAnalisys@" + index);
+                List<UserInfo> quick = quickSortAnalysis.Analysis(list);
+                benchmark.End("QuickAnalisys@" + index);
+                //==================================================
+                // Analise dos dados (Language)
+                Console.WriteLine("\t[LOG] Language");
+                benchmark.Start("LanguageAnalisys@" + index);
+                List<UserInfo> lang = languageSortAnalysis.Analysis(list);
+                benchmark.End("LanguageAnalisys@" + index);
+                //==================================================
 
-            ISimpleTableAnalysis maxValue = new MaxValueAnalysis();
-            ISimpleTableAnalysis minValue = new MinValueAnalysis();
-            ISimpleTableAnalysis meanValue = new MeanAnalysis();
-
-            // Obtendo o tempo inicial de analise em milissegundos
-            long analise_inicio = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-
-            // Realizando analises
-            double max = maxValue.Analysis(list);
-            double min = minValue.Analysis(list);
-            double mean = meanValue.Analysis(list);
-
-            // Obtendo o tempo final de analise em milissegundos
-            long analise_fim = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-
-            // Dados de saida
-            StringBuilder builder = new StringBuilder();
-            builder.Append("[OK]Arquivo: ").Append(arquivo).Append('\n');
-            builder.Append("[OK]Tempo_leitura: ").Append(leitura_fim - leitura_inicio).Append(" ms").Append('\n');
-            builder.Append("[OK]Tempo_analise: ").Append(analise_fim - analise_inicio).Append(" ms").Append('\n');
-            builder.Append("[OK]Max: ").Append(max).Append('\n');
-            builder.Append("[OK]Min: ").Append(min).Append('\n');
-            builder.Append("[OK]Mean: ").Append(mean);
-
-            Console.WriteLine("[START] Csharp_" + arquivo);
-            Console.WriteLine(builder.ToString());
-            Console.WriteLine("[END] Csharp_" + arquivo);
-
-        }
-
-        /// <summary>
-        /// Método para captura e tratamento dos parametros obtidos via console
-        /// </summary>
-        /// <param name="codes">Lista de parametros iniciais</param>
-        private static string PrepareArgs(string[] codes) {
-            if(codes.Length != 1) {
-                Console.WriteLine("Parametros inválidos.");
-                Environment.Exit(-1);
+                Console.WriteLine("[END] Arquivo: " + index);
             }
 
-            return codes[0];
+            benchmark.Export(output, TimeFormat.MILISSEGUNDOS);
+        }
+
+        static Config GetConfiguration(string fileName) {
+            string jsonString = File.ReadAllText(fileName);
+            Config config = JsonSerializer.Deserialize<Config>(jsonString)!;
+            return config;
         }
     }
 }

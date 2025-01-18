@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ayf1CTfY76E=",
+  "dgSpecHash": "BUjtGY434+M=",
   "success": true,
-  "projectFilePath": "/home/pedro/Documentos/bml-pluggins/inputclass/bml-csharp/simulation.tests/simulation.tests.csproj",
+  "projectFilePath": "/home/pedro/Documentos/bml-pluggins/errorclass/bml-csharp/simulation.tests/simulation.tests.csproj",
   "expectedPackageFiles": [
     "/home/pedro/.nuget/packages/coverlet.collector/6.0.2/coverlet.collector.6.0.2.nupkg.sha512",
     "/home/pedro/.nuget/packages/microsoft.codecoverage/17.11.1/microsoft.codecoverage.17.11.1.nupkg.sha512",
