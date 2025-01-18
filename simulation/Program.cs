@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Text;
-using System.Linq;
-using System.Collections.Generic;
+﻿using System.Text;
 using simulation.src.model;
 
 namespace simulation {
@@ -18,11 +14,11 @@ namespace simulation {
         /// <param name="args">Lista de parametros iniciais</param>
         static void Main(string[] args) {
 
-            int tamanho = prepareArgs(args);
+            int tamanho = PrepareArgs(args);
             long antes = DateTimeOffset.Now.ToUnixTimeMilliseconds();
 
-            StringBuilder builder = new StringBuilder();
-            List<UserInfo> list = new List<UserInfo>();
+            StringBuilder builder = new();
+            List<UserInfo> list = [];
             
             for(int index = 0; index < tamanho; index++) {
                 builder.Append("User").Append(index);
@@ -38,7 +34,7 @@ namespace simulation {
             long time = DateTimeOffset.Now.ToUnixTimeMilliseconds() - antes;
 
             builder = new StringBuilder();
-            builder.Append("[OK]Tamanho: ").Append(tamanho).Append("\n");
+            builder.Append("[OK]Tamanho: ").Append(tamanho).Append('\n');
             builder.Append("[OK]Tempo: ").Append(time).Append(" ms");
 
             Console.WriteLine("[START] Csharp_" + tamanho);
@@ -50,7 +46,7 @@ namespace simulation {
         /// Método para captura e tratamento dos parametros obtidos via console
         /// </summary>
         /// <param name="args">Lista de parametros iniciais</param>
-        private static int prepareArgs(string[] codes) {
+        private static int PrepareArgs(string[] codes) {
             if(codes.Length != 1) {
                 Console.WriteLine("Parametros inválidos.");
                 Environment.Exit(-1);

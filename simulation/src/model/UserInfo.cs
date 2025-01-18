@@ -3,22 +3,24 @@ namespace simulation.src.model {
     /// <summary>
     /// Informacoes do usuario
     /// </summary>
-    public class UserInfo {
+    /// <param name="user">Nome do usuario</param>
+    /// <param name="password">Senha do usuario</param>
+    public class UserInfo(string user, string password) {
         
         /// <summary>
         /// Variável privada para o nome do usuário
         /// </summary>
-        private string _user;
+        private string _user = user;
 
         /// <summary>
         /// Variável privada para a senha do usuário
         /// </summary>
-        private string _password;
+        private string _password = password;
                 
         /// <summary>
         /// Variável publica para o nome do usuário
         /// </summary>
-        public string user {
+        public string User {
 
             /// <summary>
             /// Obtem o nome do usuario
@@ -39,7 +41,7 @@ namespace simulation.src.model {
         /// <summary>
         /// Variável publica para a senha do usuário
         /// </summary>
-        public string password {
+        public string Password {
             
             /// <summary>
             /// Obtem a senha do usuario criptografada
@@ -58,21 +60,11 @@ namespace simulation.src.model {
         }
 
         /// <summary>
-        /// Construtor publico da classe
-        /// </summary>
-        /// <param name="user">Nome do usuario</param>
-        /// <param name="password">Senha do usuario</param>
-        public UserInfo(string user, string password) {
-            this._user = user;
-            this._password = password;
-        }
-
-        /// <summary>
         /// Metodo privado para encriptar a senha do usuario
         /// </summary>
         /// <param name="password">Senha a ser encriptada</param>
         /// <returns>Nova senha encriptada</returns>
-        private string cryptPassword(string password){
+        private static string cryptPassword(string password){
             char[] cryptArray = password.ToCharArray();
             Array.Reverse(cryptArray);
 
