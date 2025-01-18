@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation.tests/simulation.tests.csproj": {}
+    "/home/pedro/Documentos/bml-pluggins/inputclass/bml-csharp/simulation.tests/simulation.tests.csproj": {}
   },
   "projects": {
-    "/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation.tests/simulation.tests.csproj": {
+    "/home/pedro/Documentos/bml-pluggins/inputclass/bml-csharp/simulation.tests/simulation.tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation.tests/simulation.tests.csproj",
+        "projectUniqueName": "/home/pedro/Documentos/bml-pluggins/inputclass/bml-csharp/simulation.tests/simulation.tests.csproj",
         "projectName": "simulation.tests",
-        "projectPath": "/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation.tests/simulation.tests.csproj",
+        "projectPath": "/home/pedro/Documentos/bml-pluggins/inputclass/bml-csharp/simulation.tests/simulation.tests.csproj",
         "packagesPath": "/home/pedro/.nuget/packages/",
-        "outputPath": "/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation.tests/obj/",
+        "outputPath": "/home/pedro/Documentos/bml-pluggins/inputclass/bml-csharp/simulation.tests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/pedro/.nuget/NuGet/NuGet.Config"
@@ -26,8 +26,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation/simulation.csproj": {
-                "projectPath": "/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation/simulation.csproj"
+              "/home/pedro/Documentos/bml-pluggins/inputclass/bml-csharp/simulation/simulation.csproj": {
+                "projectPath": "/home/pedro/Documentos/bml-pluggins/inputclass/bml-csharp/simulation/simulation.csproj"
               }
             }
           }
@@ -81,18 +81,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation/simulation.csproj": {
+    "/home/pedro/Documentos/bml-pluggins/inputclass/bml-csharp/simulation/simulation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation/simulation.csproj",
+        "projectUniqueName": "/home/pedro/Documentos/bml-pluggins/inputclass/bml-csharp/simulation/simulation.csproj",
         "projectName": "simulation",
-        "projectPath": "/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation/simulation.csproj",
+        "projectPath": "/home/pedro/Documentos/bml-pluggins/inputclass/bml-csharp/simulation/simulation.csproj",
         "packagesPath": "/home/pedro/.nuget/packages/",
-        "outputPath": "/home/pedro/Documentos/bml-pluggins/simpleclass/bml-csharp/simulation/obj/",
+        "outputPath": "/home/pedro/Documentos/bml-pluggins/inputclass/bml-csharp/simulation/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/pedro/.nuget/NuGet/NuGet.Config"
@@ -140,7 +140,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -16,7 +16,7 @@ public class UserInfoTest {
         bool valid = true;
         try {
             UserInfo userinfo = new UserInfo("user", "password");
-            userinfo.user = "newUser";
+            userinfo.User = "newUser";
         } catch (Exception _) {
             valid = false;
         }
@@ -40,7 +40,7 @@ public class UserInfoTest {
     [Fact]
     public void GetUsernameMustBeValid() {
         UserInfo userinfo = new UserInfo("user", "password");
-        Assert.True(userinfo.user == "user", "4. 'user' devera ser obtido corretamente");
+        Assert.True(userinfo.User == "user", "4. 'user' devera ser obtido corretamente");
     }
 
     [Fact]
