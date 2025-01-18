@@ -37,10 +37,14 @@ sudo docker run inputclass_csharp
 4. O resultado sairá no STDOUT no seguinte formato:
 
 ```
-[START] Csharp_100000
-[OK]Tamanho: 100000
-[OK]Tempo: 57 ms
-[END] Csharp_100000
+[START] Csharp_data/data_D10.csv
+[OK]Arquivo: data/data_D10.csv
+[OK]Tempo_leitura: 769 ms
+[OK]Tempo_analise: 39 ms
+[OK]Max: 1000000
+[OK]Min: 1
+[OK]Mean: 500000.5
+[END] Csharp_data/data_D10.csv
 ```
 
 ### Garantia de Qualidade
