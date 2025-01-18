@@ -14,13 +14,8 @@ namespace simulation.src.provider {
         /// <param name="list">Lista de "UserInfo"</param>
         /// <returns>Média de valor de credit</returns>
         public double Analysis(List<UserInfo> list) {
-
-            double sum = 0;
-            foreach(UserInfo userInfo in list) {
-                sum += userInfo.Credit;
-            }
-
-            return sum/list.Count;
+            double mean = list.Average(userInfo => userInfo.Credit);
+            return mean;
         }
     }
 }

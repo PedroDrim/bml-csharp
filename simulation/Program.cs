@@ -61,7 +61,7 @@ namespace simulation {
         /// <summary>
         /// Método para captura e tratamento dos parametros obtidos via console
         /// </summary>
-        /// <param name="args">Lista de parametros iniciais</param>
+        /// <param name="codes">Lista de parametros iniciais</param>
         private static string PrepareArgs(string[] codes) {
             if(codes.Length != 1) {
                 Console.WriteLine("Parametros inválidos.");

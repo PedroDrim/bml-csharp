@@ -14,12 +14,7 @@ namespace simulation.src.provider {
         /// <param name="list">Lista de "UserInfo"</param>
         /// <returns>Menor valor de credit</returns>
         public double Analysis(List<UserInfo> list) {
-
-            double min = double.MaxValue;
-            foreach(UserInfo userInfo in list) {
-                if(min > userInfo.Credit) min = userInfo.Credit;
-            }
-
+            double min = list.Min(userInfo => userInfo.Credit);
             return min;
         }
     }

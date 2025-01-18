@@ -28,10 +28,10 @@ git clone -b <branch> https://github.com/PedroDrim/bml-csharp
 
 ```
 # Gerando build docker
-sudo docker build -t simpleclass_csharp .
+sudo docker build -t inputclass_csharp .
 
 # Executando container
-sudo docker run simpleclass_csharp
+sudo docker run inputclass_csharp
 ```
 
 4. O resultado sairá no STDOUT no seguinte formato:
