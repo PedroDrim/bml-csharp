@@ -1,0 +1,11 @@
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+.git
+.gitignore
+
+./simulation/bin
+./simulation/org
+./simulation.tests/bin
+./simulation.tests/org
