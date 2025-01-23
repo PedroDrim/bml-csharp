@@ -18,8 +18,7 @@ namespace simulation.src.provider {
             if(list == null || (list.Count == 0))
                 throw new InvalidParameterException("'userInfoList' é null ou vazio");
 
-            List<UserInfo> sortedList = [.. list.OrderBy(it => it.Credit)];
-
+            List<UserInfo> sortedList = [.. list.OrderBy(it => -it.Credit)];
             return sortedList;
         }
     }

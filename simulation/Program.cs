@@ -33,32 +33,33 @@ namespace simulation {
                 Console.WriteLine("\t[LOG] Read");
                 benchmark.Start("Read@" + index);
                 TableReader tableReader = new (input);
+                tableReader.Open();
                 List<UserInfo> list = tableReader.Read();
                 benchmark.End("Read@" + index);
                 //==================================================
                 // Analise dos dados (Summary)
                 Console.WriteLine("\t[LOG] Summary");
-                benchmark.Start("SummaryAnalisys@" + index);
+                benchmark.Start("SummaryAnalysis@" + index);
                 double[] summary = summaryAnalysis.Analysis(list);
-                benchmark.End("SummaryAnalisys@" + index);
+                benchmark.End("SummaryAnalysis@" + index);
                 //==================================================
                 // Analise dos dados (Merge)
                 Console.WriteLine("\t[LOG] Merge");
-                benchmark.Start("MergeAnalisys@" + index);
+                benchmark.Start("MergeAnalysis@" + index);
                 List<UserInfo> merge = mergeSortAnalysis.Analysis(list);
-                benchmark.End("MergeAnalisys@" + index);
+                benchmark.End("MergeAnalysis@" + index);
                 //==================================================
                 // Analise dos dados (Quick)
                 Console.WriteLine("\t[LOG] Quick");
-                benchmark.Start("QuickAnalisys@" + index);
+                benchmark.Start("QuickAnalysis@" + index);
                 List<UserInfo> quick = quickSortAnalysis.Analysis(list);
-                benchmark.End("QuickAnalisys@" + index);
+                benchmark.End("QuickAnalysis@" + index);
                 //==================================================
                 // Analise dos dados (Language)
                 Console.WriteLine("\t[LOG] Language");
-                benchmark.Start("LanguageAnalisys@" + index);
+                benchmark.Start("LanguageAnalysis@" + index);
                 List<UserInfo> lang = languageSortAnalysis.Analysis(list);
-                benchmark.End("LanguageAnalisys@" + index);
+                benchmark.End("LanguageAnalysis@" + index);
                 //==================================================
 
                 Console.WriteLine("[END] Arquivo: " + index);

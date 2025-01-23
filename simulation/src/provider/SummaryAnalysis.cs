@@ -24,7 +24,7 @@ namespace simulation.src.provider {
             foreach(UserInfo userInfo in list) {
                 sum += userInfo.Credit;
                 if(min > userInfo.Credit) min = userInfo.Credit;
-                if(max > userInfo.Credit) max = userInfo.Credit;
+                if(max < userInfo.Credit) max = userInfo.Credit;
             }
 
             double mean = sum/list.Count;

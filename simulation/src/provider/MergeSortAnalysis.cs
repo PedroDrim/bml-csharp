@@ -30,6 +30,7 @@ namespace simulation.src.provider {
             double middle = tamanho / 2;
             int meio = (int) Math.Floor(middle);
 
+
             // Separando vetores
             List<UserInfo> vetorEsquerda = array[..meio];
             List<UserInfo> vetorDireita = array[meio..];
@@ -62,7 +63,6 @@ namespace simulation.src.provider {
 
             // Unificando os vetores da esquerda e da direita
             while (indexEsquerda < distanciaEsquerda && indexDireita < distanciaDireita) {
-
                 // Verificando comparacao
                 if (esquerda[indexEsquerda].Credit > direita[indexDireita].Credit) {
                     // Aplicando esquerda
@@ -75,12 +75,15 @@ namespace simulation.src.provider {
                 }
             }
     
+ 
             // Obtendo vetores de resposta
-            List<UserInfo> vetorEsquerda = esquerda[..indexEsquerda];
-            List<UserInfo> vetorDireita = direita[indexDireita..];
+            List<UserInfo> vetorEsquerda = esquerda[indexEsquerda ..];
+            List<UserInfo> vetorDireita = direita[indexDireita ..];
             
             // Retornando resposta
-            return [.. vetorEsquerda, ..vetorDireita];
+            response.AddRange(vetorEsquerda);
+            response.AddRange(vetorDireita);
+            return response;
         }
     }
 }

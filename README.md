@@ -28,23 +28,22 @@ git clone -b <branch> https://github.com/PedroDrim/bml-csharp
 
 ```
 # Gerando build docker
-sudo docker build -t inputclass_csharp .
+sudo docker build -t errorclass_csharp .
 
 # Executando container
-sudo docker run inputclass_csharp
+sudo docker run errorclass_csharp
 ```
 
 4. O resultado sairá no STDOUT no seguinte formato:
 
 ```
-[START] Csharp_data/data_D10.csv
-[OK]Arquivo: data/data_D10.csv
-[OK]Tempo_leitura: 769 ms
-[OK]Tempo_analise: 39 ms
-[OK]Max: 1000000
-[OK]Min: 1
-[OK]Mean: 500000.5
-[END] Csharp_data/data_D10.csv
+{
+    "Read@0":67,
+    "SummaryAnalysis@0":1,
+    "MergeAnalysis@0":72,
+    "QuickAnalysis@0":65,
+    "LanguageAnalysis@0":19
+}
 ```
 
 ### Garantia de Qualidade
@@ -68,3 +67,5 @@ Esta seção é a mais divertida (na minha opinião), pois nela descrevo os expe
 | Nome (com link) | Objetivo | Técnicas utilizadas para análise |
 |-----------------|----------|----------------------------------|
 | [simpleclass](https://github.com/PedroDrim/Benchmark-Languages/blob/simpleclass/Documents/simpleclass.md) | Estudar a criação de classes simples | Scatterplot de média com desvio padrão e regressão linear simples.|
+| [inputclass](https://github.com/PedroDrim/Benchmark-Languages/blob/master/outputs/inputclass/inputclass.md) | Estudar a leitura de arquivos e interfaces | Análise por média e exibição por Barplot estacado |
+| [erroclass](https://github.com/PedroDrim/Benchmark-Languages/blob/master/outputs/errorclass/errorclass.md) | Estudar o tratamento de excessões | Análise por média com desvio padrão e exibição de ScatterPlot |

@@ -4,7 +4,13 @@ namespace simulation.src.model {
     /// Interface para leitura de dados
     /// </summary>
     public interface IDataReader {      
- 
+
+        /// <summary>
+        /// Obtem todos os dados disponiveis
+        /// </summary>
+        /// <returns>Lista contendo todos os dados disponiveis</returns>
+        void Open();
+
         /// <summary>
         /// Obtem todos os dados disponiveis
         /// </summary>

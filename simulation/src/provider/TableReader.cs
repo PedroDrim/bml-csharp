@@ -6,26 +6,25 @@ namespace simulation.src.provider {
     /// <summary>
     /// Classe responsavel por ler e disponibilizar os dados em um formato desejado
     /// </summary>
-    public class TableReader : IDataReader {      
-        
+    /// <remarks>
+    /// Construtor publico da classe
+    /// </remarks>
+    /// <param name="fileName">Nome do arquivo de dados a ser lido</param>
+    public class TableReader(string fileName) : IDataReader {
+
         /// <summary>
         /// Nome do arquivo de dados
         /// </summary>
         /// <returns>Nome do arquivo de dados</returns>
-        public string FileName { get; }
+        public readonly string FileName = fileName;
 
         /// <summary>
         /// Lista contendo os dados
         /// </summary>
-        private readonly List<UserInfo> userInfoList;
-        
-        /// <summary>
-        /// Construtor publico da classe
-        /// </summary>
-        /// <param name="fileName">Nome do arquivo de dados a ser lido</param>
-        public TableReader (string fileName) {
-            this.FileName = fileName ?? throw new InvalidParameterException("'fileName' e null");
-            this.userInfoList = this.DeserializeFile(this.FileName);
+        private List<UserInfo> UserInfoList = [];
+
+        public void Open() {
+            this.UserInfoList = this.DeserializeFile(this.FileName);
         }
 
         /// <summary>
@@ -33,7 +32,7 @@ namespace simulation.src.provider {
         /// </summary>
         /// <returns>Lista contendo todos os dados disponiveis</returns>
         public List<UserInfo> Read() {
-            return this.userInfoList;
+            return this.UserInfoList;
         }
 
         /// <summary>
@@ -47,7 +46,7 @@ namespace simulation.src.provider {
             if(endIndex < 0) throw new InvalidParameterException("'endIndex' é menor que 0");
             if(startIndex >= endIndex) throw new InvalidParameterException("'startIndex' é maior ou igual á 'endIndex'");
 
-            return this.userInfoList.GetRange(startIndex, endIndex);
+            return this.UserInfoList.GetRange(startIndex, endIndex);
         }
 
         /// <summary>
@@ -55,41 +54,16 @@ namespace simulation.src.provider {
         /// </summary>
         /// <param name="fileName">Nome do arquivo de dados</param>
         /// <returns>Lista contendo os dados desserilizados</returns>
-        private List<UserInfo> DeserializeFile (string fileName) {
+        private List<UserInfo> DeserializeFile(string fileName) {
             if(fileName == null) throw new InvalidParameterException("'fileName' e null");
 
-            List<UserInfo> userInfoList = [];
-
             try {
-                StreamReader file = new(fileName);  
-                bool first = true;
-                string? line;
-
-                while((line = file.ReadLine()) != null) {
-                    if (first) {
-                        first = false;
-                        continue;
-                    }
-
-                    string[] values = line.Split(",");
-
-                    string user = values[0].Trim();
-                    string password = values[1].Trim();
-
-                    double credit = double.Parse(values[2].Trim(),
-                        System.Globalization.CultureInfo.InvariantCulture
-                    );
-                    
-                    UserInfo userInfo = new(user, password, credit);
-                    userInfoList.Add(userInfo);
-                }  
-
-                file.Close();
-            } catch(FileNotFoundException) {
-                throw new DataReaderException("Erro ao abrir o arquivo " + fileName);
-            } 
-
-            return userInfoList;
+                IEnumerable<UserInfo> list = File.ReadAllLines(fileName)[1..].Where(it => it != "").Select(this.ConvertLine);
+                List<UserInfo> userInfoList = [..list];
+                return [..userInfoList];
+            } catch (FileNotFoundException) {
+                throw new DataReaderException("Arquivo não encontrado");
+            }
         }
 
         /// <summary>
@@ -98,8 +72,6 @@ namespace simulation.src.provider {
         /// <param name="line">line Linha a ser desserializada</param>
         /// <returns>Objeto 'UserInfo'</returns>
         private UserInfo ConvertLine(string line) {
-            if(line == null) throw new InvalidParameterException("'line' e null");
-
             string[] values = line.Split(",");
 
             string user = values[0].Trim();
