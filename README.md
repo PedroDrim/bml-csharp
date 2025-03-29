@@ -1,5 +1,9 @@
 # bml-Csharp
 
+[![Docker Build](https://github.com/PedroDrim/bml-csharp/actions/workflows/dotnet.yml/badge.svg?branch=errorclass)](https://github.com/PedroDrim/bml-csharp/actions)
+[![CodeQL Security](https://github.com/PedroDrim/bml-csharp/actions/workflows/codeql.yml/badge.svg?branch=errorclass)](https://github.com/PedroDrim/bml-csharp/actions)
+[![Codacy](https://github.com/PedroDrim/bml-csharp/actions/workflows/codacy.yml/badge.svg?branch=errorclass)](https://github.com/PedroDrim/bml-csharp/actions)
+
 ### Introdução
 
 O objetivo deste repositório é estudar o comportamento, estrutura e o desempenho da linguagem C#.
