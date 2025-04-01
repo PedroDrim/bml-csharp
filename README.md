@@ -1,8 +1,7 @@
 # bml-Csharp
 
-[![Docker Build](https://github.com/PedroDrim/bml-csharp/actions/workflows/dotnet.yml/badge.svg?branch=errorclass)](https://github.com/PedroDrim/bml-csharp/actions)
-[![CodeQL Security](https://github.com/PedroDrim/bml-csharp/actions/workflows/codeql.yml/badge.svg?branch=errorclass)](https://github.com/PedroDrim/bml-csharp/actions)
-[![Codacy](https://github.com/PedroDrim/bml-csharp/actions/workflows/codacy.yml/badge.svg?branch=errorclass)](https://github.com/PedroDrim/bml-csharp/actions)
+[![Run Docker with Tests (Csharp)](https://github.com/PedroDrim/bml-csharp/actions/workflows/dotnet.yml/badge.svg?branch=errorclass)](https://github.com/PedroDrim/bml-csharp/actions/workflows/dotnet.yml)
+[![Codacy Security Scan](https://github.com/PedroDrim/bml-csharp/actions/workflows/codacy.yml/badge.svg?branch=errorclass)](https://github.com/PedroDrim/bml-csharp/actions/workflows/codacy.yml)
 
 ### Introdução
 
